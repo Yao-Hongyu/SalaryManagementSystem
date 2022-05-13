@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: SalaryManagementSystem
+  datasource:
+    url: jdbc:mysql://localhost:3306/salarymanagementsystem?serverTimezone=GMT%2B8
+    username: root
+    password: 123233
+
+
+server:
+  port: 8000

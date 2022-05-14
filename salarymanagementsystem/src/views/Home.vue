@@ -1,32 +1,30 @@
 <template>
   <el-container>
     <el-header class="header_header">
-      <el-card class="header_card"
-      ><span>{{ username }}</span>
-        <el-button class="logout_button" @click="logout"
-        >logout</el-button
-        >
-      </el-card>
     </el-header>
     <el-container>
       <el-aside width="200px"
       ><el-menu class="main_menu" :router="true">
-        <el-menu-item index="user">
+        <el-menu-item index="employee">
           <i class="el-icon-menu"></i>
-          <span slot="title">User</span>
+          <span slot="title">Employee</span>
         </el-menu-item>
-        <el-menu-item index="question">
+        <el-menu-item index="employeeType">
           <i class="el-icon-menu"></i>
-          <span slot="title">Question</span>
+          <span slot="title">EmployeeType</span>
         </el-menu-item>
-        <!-- <el-menu-item index="3" disabled>
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
+        <el-menu-item index="monthSalary">
+          <i class="el-icon-menu"></i>
+          <span slot="title">MonthSalary</span>
         </el-menu-item>
-        <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-        </el-menu-item> -->
+        <el-menu-item index="workRecord">
+          <i class="el-icon-menu"></i>
+          <span slot="title">WorkRecord</span>
+        </el-menu-item>
+        <el-menu-item index="allowance">
+          <i class="el-icon-menu"></i>
+          <span slot="title">Allowance</span>
+        </el-menu-item>
       </el-menu></el-aside
       >
       <el-main class="main_container"
@@ -40,20 +38,11 @@
 export default {
   data() {
     return {
-      username: "",
     };
   },
   created() {
-    this.setName();
   },
   methods: {
-    setName() {
-      this.username = window.sessionStorage.getItem("username");
-    },
-    logout() {
-      window.sessionStorage.clear();
-      this.$router.push("/login");
-    },
   },
 };
 </script>

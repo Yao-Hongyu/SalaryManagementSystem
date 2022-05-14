@@ -46,7 +46,7 @@ export default {
   methods: {
     signin() {
       this.$http
-          .post("/admin/signin", this.userForm)
+          .post("/admin/register", this.userForm)
           .then((res) => {
             res = res.data;
             console.log(res);
@@ -63,15 +63,11 @@ export default {
             res = res.data;
             console.log(res);
             this.$message.success(res.message);
-            if (res.code == "00000") {
-              console.log(res);
+            if (res.code == "0000") {
+              console.log(res.data.token);
               window.sessionStorage.setItem("token", res.data.token);
-              window.sessionStorage.setItem(
-                  "username",
-                  this.userForm.username
-              );
               // this.$emit("alter-username", this.userForm.username);
-              return this.$router.push("/admin");
+              return this.$router.push("/home");
             }
           })
           .catch((error) => {

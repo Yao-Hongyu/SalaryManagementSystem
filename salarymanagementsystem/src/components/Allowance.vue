@@ -132,8 +132,8 @@ export default {
           .then((res) => {
             res = res.data;
             console.log(res);
-            this.allowanceList = res.data;
-            this.workRecord.date = this.workRecord.date.getTime();
+            this.allowance = res.data;
+            this.allowance.date = new Date(parseInt(this.allowance.date)).toLocaleString();
             this.$message.success(res.message);
           })
           .catch((error) => {

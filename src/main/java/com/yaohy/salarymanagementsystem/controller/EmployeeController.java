@@ -1,7 +1,9 @@
 package com.yaohy.salarymanagementsystem.controller;
 
+import com.yaohy.salarymanagementsystem.mapper.EmployeeMapper;
 import com.yaohy.salarymanagementsystem.pojo.domain.Allowance;
 import com.yaohy.salarymanagementsystem.pojo.domain.Employee;
+import com.yaohy.salarymanagementsystem.pojo.domain.YearBonus;
 import com.yaohy.salarymanagementsystem.pojo.dto.CommonResult;
 import com.yaohy.salarymanagementsystem.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private EmployeeMapper employeeMapper;
 
     @RequestMapping("/add")
     public CommonResult add(@RequestBody Employee employee){
@@ -52,6 +56,13 @@ public class EmployeeController {
         Employee employee = employeeService.getById(id);
 
         return CommonResult.success(employee);
+    }
+
+    @RequestMapping("/getYearBonus")
+    public CommonResult getYearBonus(){
+        List<YearBonus> yearBonusList = employeeMapper.getYearBonus();
+
+        return CommonResult.success(yearBonusList);
     }
 
 }

@@ -11,7 +11,7 @@
  Target Server Version : 50732
  File Encoding         : 65001
 
- Date: 27/05/2022 19:38:30
+ Date: 02/06/2022 21:45:59
 */
 
 SET NAMES utf8mb4;
@@ -27,6 +27,12 @@ CREATE TABLE `admin`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES (1, '123', '202cb962ac59075b964b07152d234b70');
+INSERT INTO `admin` VALUES (2, 'test', '098f6bcd4621d373cade4e832627b4f6');
 
 -- ----------------------------
 -- Table structure for allowance
@@ -45,6 +51,11 @@ CREATE TABLE `allowance`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of allowance
+-- ----------------------------
+INSERT INTO `allowance` VALUES (1, 1, 1653062400000, 4, 100, '节假日出勤');
+
+-- ----------------------------
 -- Table structure for employee
 -- ----------------------------
 DROP TABLE IF EXISTS `employee`;
@@ -59,6 +70,11 @@ CREATE TABLE `employee`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of employee
+-- ----------------------------
+INSERT INTO `employee` VALUES (1, '张三', 20, 1);
+
+-- ----------------------------
 -- Table structure for employee_type
 -- ----------------------------
 DROP TABLE IF EXISTS `employee_type`;
@@ -69,6 +85,11 @@ CREATE TABLE `employee_type`  (
   `base_salary` decimal(10, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of employee_type
+-- ----------------------------
+INSERT INTO `employee_type` VALUES (1, '一级员工', 'p1', 300.00);
 
 -- ----------------------------
 -- Table structure for month_salary
@@ -82,6 +103,11 @@ CREATE TABLE `month_salary`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of month_salary
+-- ----------------------------
+INSERT INTO `month_salary` VALUES (1, 3000.00);
+
+-- ----------------------------
 -- Table structure for work_record
 -- ----------------------------
 DROP TABLE IF EXISTS `work_record`;
@@ -93,6 +119,13 @@ CREATE TABLE `work_record`  (
   INDEX `employee_id`(`employee_id`) USING BTREE,
   CONSTRAINT `work_record_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of work_record
+-- ----------------------------
+INSERT INTO `work_record` VALUES (1, 1, 1653062400000);
+INSERT INTO `work_record` VALUES (2, 1, 1653148800000);
+INSERT INTO `work_record` VALUES (3, 1, 1653235200000);
 
 -- ----------------------------
 -- View structure for year_bonus

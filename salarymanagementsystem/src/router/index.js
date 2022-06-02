@@ -7,6 +7,7 @@ import EmployeeType from "@/components/EmployeeType";
 import MonthSalary from "@/components/MonthSalary";
 import WorkRecord from "@/components/WorkRecord";
 import Allowance from "@/components/Allowance";
+import YearBonus from "@/components/YearBonus";
 
 Vue.use(VueRouter)
 
@@ -22,19 +23,22 @@ const routes = [
             {
                 path: '/employee',
                 component: Employee,
-            },{
+            }, {
                 path: '/employeeType',
                 component: EmployeeType,
-            },{
+            }, {
                 path: '/monthSalary',
                 component: MonthSalary,
-            },{
+            }, {
                 path: '/workRecord',
                 component: WorkRecord,
-            },{
+            }, {
                 path: '/allowance',
                 component: Allowance,
-            },
+            }, {
+                path: '/yearBonus',
+                component: YearBonus,
+            }
         ]
     }, {
         path: '/login',

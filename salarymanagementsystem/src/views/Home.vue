@@ -25,6 +25,10 @@
           <i class="el-icon-menu"></i>
           <span slot="title">Allowance</span>
         </el-menu-item>
+        <el-menu-item index="yearBonus">
+          <i class="el-icon-menu"></i>
+          <span slot="title">YearBonus</span>
+        </el-menu-item>
       </el-menu></el-aside
       >
       <el-main class="main_container"

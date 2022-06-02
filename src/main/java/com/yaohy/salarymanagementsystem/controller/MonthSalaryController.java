@@ -1,5 +1,6 @@
 package com.yaohy.salarymanagementsystem.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yaohy.salarymanagementsystem.pojo.domain.EmployeeType;
 import com.yaohy.salarymanagementsystem.pojo.domain.MonthSalary;
 import com.yaohy.salarymanagementsystem.pojo.dto.CommonResult;
@@ -49,7 +50,7 @@ public class MonthSalaryController {
 
     @RequestMapping("/get")
     public CommonResult getById(@RequestParam("id") Integer id){
-        MonthSalary monthSalary = monthSalaryService.getById(id);
+        MonthSalary monthSalary = monthSalaryService.getOne(new QueryWrapper<MonthSalary>().eq("employee_id",id));
 
         return CommonResult.success(monthSalary);
     }

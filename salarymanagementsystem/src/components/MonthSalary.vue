@@ -12,13 +12,13 @@
                 <el-table-column label="operation">
                     <template slot-scope="scope"
                         ><el-button
-                            @click="edit(scope.row.id)"
+                            @click="edit(scope.row.employeeId)"
                             type="primary"
                             style="width: 100px"
                             >edit</el-button
                         >
                         <el-button
-                            @click="remove(scope.row.id)"
+                            @click="remove(scope.row.employeeId)"
                             type="danger"
                             style="width: 100px"
                             >delete</el-button
